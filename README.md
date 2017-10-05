@@ -13,16 +13,13 @@ return [
     'name' => 'Phun',
     ...
     'fcm' => [
-        'apikey' => 'AlzaSyc...',
-        'content' => [
-            'restricted_package_name' => 'com.example.android.app',
-            'notification' => [
-                'sound'         => 'default',
-                'click_action'  => 'FCM_PLUGIN_ACTIVITY',
-                'icon'          => 'fcm_push_icon'
-            ],
-            'priority'  => 'high',
-        ]
+        'restricted_package_name' => 'com.example.android.app',
+        'notification' => [
+            'sound'         => 'default',
+            'click_action'  => 'FCM_PLUGIN_ACTIVITY',
+            'icon'          => 'fcm_push_icon'
+        ],
+        'priority'  => 'high'
     ]
 ];
 ```
@@ -32,39 +29,33 @@ Kirimkan pesan ke device dengan perintah seperti di bawah:
 ```php
 ...
 // tindih konfigurasi aplikasi/module
-$this->fcm->send([
-    'apikey'    => 'AlzaSyc...',
-    'content'   => [
-        'restricted_package_name' => 'com.example...',
-        'notification' => [
-            'title'         => 'New Message',
-            'body'          => 'You get new message',
-            'sound'         => 'default',
-            'click_action'  => 'FCM_PLUGIN_ACTIVITY',
-            'icon'          => 'fcm_push_icon'
-        ],
-        'priority'  => 'high',
-        'data'      => [
-            'key1' => 'value1',
-            'key2' => 'value2'
-        ],
-        'to' => '/topics/admin'
-    ]
+$this->fcm->send($appid, [
+    'notification' => [
+        'title'         => 'New Message',
+        'body'          => 'You get new message',
+        'sound'         => 'default',
+        'click_action'  => 'FCM_PLUGIN_ACTIVITY',
+        'icon'          => 'fcm_push_icon'
+    ],
+    'priority'  => 'high',
+    'data'      => [
+        'key1' => 'value1',
+        'key2' => 'value2'
+    ],
+    'to' => '/topics/admin'
 ]);
 
 // gunakan konfigurasi aplikasi/module
-$this->fcm->send([
-    'content' => [
-        'notification' => [
-            'title' => 'Alloha Human',
-            'body'  => 'What\'s up there?'
-        ],
-        'data' => [
-            'key1' => 'value1',
-            'key2' => 'value2'
-        ],
-        'to' => 'eZ1paNV4NVk...'
-    ]
+$this->fcm->send($appid, [
+    'notification' => [
+        'title' => 'Alloha Human',
+        'body'  => 'What\'s up there?'
+    ],
+    'data' => [
+        'key1' => 'value1',
+        'key2' => 'value2'
+    ],
+    'to' => 'eZ1paNV4NVk...'
 ]);
 ...
 ```

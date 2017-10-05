@@ -17,7 +17,9 @@ return [
             'update'
         ]
     ],
-    '__dependencies' => [],
+    '__dependencies' => [
+        'app'
+    ],
     '_services' => [
         'fcm' => 'GoogleFcm\\Service\\Fcm'
     ],
@@ -29,14 +31,12 @@ return [
     ],
     
     'fcm' => [
-        'content' => [
-            'restricted_package_name' => '',
-            'notification'  => [
-                'sound'         => 'default',
-                'click_action'  => 'FCM_PLUGIN_ACTIVITY',
-                'icon'          => 'fcm_push_icon'
-            ],
-            'priority'      => 'high',
-        ]
+        'restricted_package_name' => '',
+        'notification'  => [
+            'sound'         => 'default',
+            'click_action'  => 'FCM_PLUGIN_ACTIVITY',
+            'icon'          => 'fcm_push_icon'
+        ],
+        'priority'      => 'high'
     ]
 ];
